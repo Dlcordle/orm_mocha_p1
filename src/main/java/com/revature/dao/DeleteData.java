@@ -1,5 +1,6 @@
 package com.revature.dao;
 
-public class DeleteData {
+public class DeleteData 
+{
 
 }
