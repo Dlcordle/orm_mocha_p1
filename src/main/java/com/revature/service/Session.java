@@ -10,11 +10,16 @@ public class Session
 {
 	private static Logger logger = Logger.getLogger(Session.class);
 	private static Connection conn = null;
+	private static Config configuration = null;
 	
-	//singleton's have a private constructors
 	private Session()
 	{
 		
+	}
+
+	public void setConfiguration(Config configuration)
+	{
+		this.configuration = configuration;
 	}
 	
 	public static Connection getConnection()
@@ -38,9 +43,9 @@ public class Session
 		String password = "";
 		
 		try {
-			url = System.getenv("DB_URL");
-			username = System.getenv("DB_USERNAME");
-			password = System.getenv("DB_PASSWORD");
+			url = configuration.getUrl();
+			username = configuration.getUsername();
+			password = configuration.getPassword();;
 			
 			conn = DriverManager.getConnection(url, username, password);
 			
