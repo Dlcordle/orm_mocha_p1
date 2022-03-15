@@ -7,7 +7,6 @@ public class Config
 	private String username;
 	private String password;
 	private String url;
-	private String schema;
 	
 	public Config() {
 		super();
@@ -17,7 +16,6 @@ public class Config
 		this.username = username;
 		this.password = password;
 		this.url = url;
-		this.schema = schema;
 	}
 	
 	public String getUsername() {

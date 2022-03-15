@@ -27,7 +27,7 @@ public class MetaModel<T>
 	public static MetaModel<Class<?>> of(Class<?> clazz) {
 		// check that the class we're attempting to transpose is annotated with @Entity
 		if (clazz.getAnnotation(Entity.class) == null) {
-			throw new IllegalStateException("Cannot create MetaModel objkect from this class! Provided class "
+			throw new IllegalStateException("Cannot create MetaModel object from this class! Provided class "
 					+ clazz.getName() + " is not annotated with @Entity");
 		}
 		// if it IS annotated with @Entity, generate a MetaModel object of it.
