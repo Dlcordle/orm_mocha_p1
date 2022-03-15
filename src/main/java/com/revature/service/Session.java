@@ -14,9 +14,6 @@ public class Session
 	
 	public Session()
 	{
-		configuration.setUrl(System.getenv("DB_URL"));
-		configuration.setUsername(System.getenv("DB_USERNAME"));
-		configuration.setPassword(System.getenv("DB_PASSWORD"));
 	}
 	
 	public void setConfiguration(Config configuration)
@@ -29,7 +26,7 @@ public class Session
 		try {
 			if(conn != null && !conn.isClosed())
 			{
-				//logger.info("returned the re-used connection object");
+				logger.info("returned the re-used connection object");
 				return conn;
 			}
 		}
@@ -52,7 +49,7 @@ public class Session
 			
 			conn = DriverManager.getConnection(url, username, password);
 			
-			//logger.info("Successfully connected to DB");
+			logger.info("Successfully connected to DB");
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
