@@ -10,13 +10,21 @@ public class Session
 {
 	private static Logger logger = Logger.getLogger(Session.class);
 	private static Connection conn = null;
+	private static Session singleton;
 	private static Config configuration = null;
 	
 	private Session()
 	{
-		
+		configuration.setUrl(System.getenv("DB_URL"));
+		configuration.setUsername(System.getenv("DB_USERNAME"));
+		configuration.setPassword(System.getenv("DB_PASSWORD"));
 	}
 
+	public Session getSession()
+	{
+		return this;
+	}
+	
 	public void setConfiguration(Config configuration)
 	{
 		this.configuration = configuration;
@@ -45,7 +53,7 @@ public class Session
 		try {
 			url = configuration.getUrl();
 			username = configuration.getUsername();
-			password = configuration.getPassword();;
+			password = configuration.getPassword();
 			
 			conn = DriverManager.getConnection(url, username, password);
 			
