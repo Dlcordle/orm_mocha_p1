@@ -10,7 +10,7 @@ public class Session
 {
 	private static Logger logger = Logger.getLogger(Session.class);
 	private static Connection conn = null;
-	private static Session singleton;
+	private static Session singleton = null;
 	private static Config configuration = null;
 	
 	private Session()
@@ -22,7 +22,11 @@ public class Session
 
 	public Session getSession()
 	{
-		return this;
+		if(singleton == null)
+		{
+			singleton = new Session();
+		}
+		return singleton;
 	}
 	
 	public void setConfiguration(Config configuration)
