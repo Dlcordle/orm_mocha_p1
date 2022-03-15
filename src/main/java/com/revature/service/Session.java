@@ -10,23 +10,13 @@ public class Session
 {
 	private static Logger logger = Logger.getLogger(Session.class);
 	private static Connection conn = null;
-	private static Session singleton = null;
 	private static Config configuration = null;
 	
-	private Session()
+	public Session()
 	{
 		configuration.setUrl(System.getenv("DB_URL"));
 		configuration.setUsername(System.getenv("DB_USERNAME"));
 		configuration.setPassword(System.getenv("DB_PASSWORD"));
-	}
-
-	public Session getSession()
-	{
-		if(singleton == null)
-		{
-			singleton = new Session();
-		}
-		return singleton;
 	}
 	
 	public void setConfiguration(Config configuration)
@@ -54,7 +44,8 @@ public class Session
 		String username = "";
 		String password = "";
 		
-		try {
+		try 
+		{
 			url = configuration.getUrl();
 			username = configuration.getUsername();
 			password = configuration.getPassword();
