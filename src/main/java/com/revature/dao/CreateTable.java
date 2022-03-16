@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -12,34 +14,29 @@ public class CreateTable {
 	private String primaryKeyColumnName; // @Id columnName
 
 	/**
-	 * @GeneratedValue(strategy=GenerationType.IDENTITY)
-	 * We need to save this somewhere when making meta models.
+	 * @GeneratedValue(strategy=GenerationType.IDENTITY) We need to save this
+	 *                                                   somewhere when making meta
+	 *                                                   models.
 	 */
 	private boolean primaryKeyIsSerial;
-	
+
 	/**
-	 * @Column
-	 * List of column data saved in a key=value LinkedHashMap
-	 * columnName=String
-	 * columnType=String of type name, use .getType() to get "String", "int", "double", "boolean"
-	 * isUnique=false
-	 * isNullable=true, *false* means NOT NULL
-	 * columnLength=50, if 0 defaults to 50
-	 * columnPrecision=2 if NUMERIC, else 0
+	 * @Column List of column data saved in a key=value LinkedHashMap
+	 *         columnName=String, columnType=String of type name, use .getType() to
+	 *         get "String", "int", "double", "boolean" isUnique=false
+	 *         isNullable=true, *false* means NOT NULL columnLength=50, if 0
+	 *         defaults to 50 columnPrecision=2 if NUMERIC, else 0
 	 */
-	private List<LinkedHashMap<String, String>> columns; 
-	
+	private List<LinkedHashMap<String, String>> columns;
+
 	/**
-	 * @JoinColumn
-	 * List of column data saved in a key=value LinkedHashMap
-	 * columnName=String
-	 * columnType=String of type name, use .getType() to get "String", "int", "double", "boolean"
-	 * isUnique=false
-	 * isNullable=true, *false* means NOT NULL
-	 * columnLength=50, if 0 defaults to 50
-	 * columnPrecision=2 if NUMERIC, else 0
+	 * @JoinColumn List of column data saved in a key=value LinkedHashMap
+	 *             columnName=String columnType=String of type name, use .getType()
+	 *             to get "String", "int", "double", "boolean" isUnique=false
+	 *             isNullable=true, *false* means NOT NULL columnLength=50, if 0
+	 *             defaults to 50 columnPrecision=2 if NUMERIC, else 0
 	 */
-	private List<LinkedHashMap<String, String>> foreignKeyColumns; 
+	private List<LinkedHashMap<String, String>> foreignKeyColumns;
 
 	// SQL statement to CREATE table
 	// We will build this throughout the program.
@@ -52,6 +49,7 @@ public class CreateTable {
 
 	/**
 	 * CreateTable Constructor with all parameters
+	 * 
 	 * @param tableName
 	 * @param tableSchema
 	 * @param primaryKeyColumnName
@@ -72,12 +70,11 @@ public class CreateTable {
 	}
 
 	/**
-	 * This method does all the work.
-	 * Instantiate a CreateTable object and call.
-	 * For production, it returns the SQL script to create the tables.
-	 * We can change this for testing.
+	 * This method does all the work. Instantiate a CreateTable object and call. For
+	 * production, it returns the SQL script to create the tables. We can change
+	 * this for testing.
 	 */
-	public String createTables() {
+	public String createTable() {
 		defineTableSQL += "CREATE TABLE " + tableSchema + "." + tableName + " (" + primaryKeyColumnName
 				+ (primaryKeyIsSerial == true ? " SERIAL" : "") + " PRIMARY KEY, ";
 
@@ -90,37 +87,48 @@ public class CreateTable {
 		if (defineTableSQL.endsWith(", ")) {
 			defineTableSQL = defineTableSQL.substring(0, (defineTableSQL.length()) - 2);
 		}
-		
+
 		defineTableSQL += ");";
+
+		// Ready for a connection
+
+//		try {
+//			PreparedStatement stmt = conn.prepareStatement(defineTableSQL);
+//			stmt.executeUpdate();
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 
 		return defineTableSQL;
 
 	}
 
-	/** Utility method that determines type of columns and returns SQL based on the type.
-	 * Requires .getType() input - "String", "int", "double", "boolean" in the columns HashMap
-	 * for the key "columnType";
-	 * I'm think we can set this while doing meta models
-	 * If not, we can add it to the @Column and @JoinColumn annotations properties.
+	/**
+	 * Utility method that determines type of columns and returns SQL based on the
+	 * type. Requires .getType() input - "String", "int", "double", "boolean" in the
+	 * columns HashMap for the key "columnType" - I'm thinking we can set this while
+	 * doing meta models - If not, we can add it to the @Column and @JoinColumn
+	 * annotations properties.
 	 */
 	public String getSQLType(List<LinkedHashMap<String, String>> cols) {
 
 		// Variable for SQL script to return
 		String sqlTypeReturn = "";
-		
+
 		if (cols != null) {
 
-			// Iterate through columns based on how many 
+			// Iterate through columns based on how many
 			// works for @Columns and @JoinColumn columns
 			for (int i = 0; i < cols.size(); i++) {
 				String sqlType = "";
-				String columnName = cols.get(i).get("columnName").toString();
-				String columnType = cols.get(i).get("columnType").toString();
-				String isUnique = cols.get(i).get("isUnique").toString();
-				String isNullable = cols.get(i).get("isNullable").toString();
-				String columnLength = cols.get(i).get("columnLength").toString();
-				String columnPrecision = cols.get(i).get("columnPrecision").toString();
-	
+				String columnName = cols.get(i).get("columnName");
+				String columnType = cols.get(i).get("columnType");
+				String isUnique = cols.get(i).get("isUnique");
+				String isNullable = cols.get(i).get("isNullable");
+				String columnLength = cols.get(i).get("columnLength");
+				String columnPrecision = cols.get(i).get("columnPrecision");
+
 				if (columnType == "String") {
 					sqlType += "VARCHAR";
 					if (Integer.parseInt(columnLength) > 0) {
@@ -144,10 +152,12 @@ public class CreateTable {
 				} else {
 					sqlType = null;
 				}
-	
-				sqlTypeReturn  += columnName + " " + sqlType + (isUnique.equals("true") ? " UNIQUE" : "")
+
+				sqlTypeReturn += columnName + " " + sqlType + (isUnique.equals("true") ? " UNIQUE" : "")
 						+ (isNullable.equals("false") ? " NOT NULL" : "") + ", ";
 			}
+		} else {
+			System.out.println("You left out some information.");
 		}
 		return sqlTypeReturn;
 	}
