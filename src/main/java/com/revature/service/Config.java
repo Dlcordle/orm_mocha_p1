@@ -7,15 +7,17 @@ public class Config
 	private String username;
 	private String password;
 	private String url;
+	private String schema;
 	
 	public Config() {
 		super();
 	}
-	public Config(String username, String password, String url) {
+	public Config(String username, String password, String url, String schema) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.url = url;
+		this.schema = schema;
 	}
 	
 	public String getUsername() {

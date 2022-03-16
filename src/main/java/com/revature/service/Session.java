@@ -12,11 +12,10 @@ public class Session
 	private static Connection conn = null;
 	private static Config configuration = null;
 	
-	private Session()
+	public Session()
 	{
-		
 	}
-
+	
 	public void setConfiguration(Config configuration)
 	{
 		this.configuration = configuration;
@@ -27,7 +26,7 @@ public class Session
 		try {
 			if(conn != null && !conn.isClosed())
 			{
-				//logger.info("returned the re-used connection object");
+				logger.info("returned the re-used connection object");
 				return conn;
 			}
 		}
@@ -42,14 +41,15 @@ public class Session
 		String username = "";
 		String password = "";
 		
-		try {
+		try 
+		{
 			url = configuration.getUrl();
 			username = configuration.getUsername();
-			password = configuration.getPassword();;
+			password = configuration.getPassword();
 			
 			conn = DriverManager.getConnection(url, username, password);
 			
-			//logger.info("Successfully connected to DB");
+			logger.info("Successfully connected to DB");
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
