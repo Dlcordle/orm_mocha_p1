@@ -98,7 +98,8 @@ public class MetaModel<T>
 
 			JoinColumn foreignKey = field.getAnnotation(JoinColumn.class);
 
-			if (foreignKeyFields != null) {
+			if (foreignKeyFields != null && foreignKey != null) {
+				System.out.println(field);
 				foreignKeyFields.add(new ForeignKeyField(field));
 			}
 		}
@@ -114,6 +115,37 @@ public class MetaModel<T>
 	
 	public String getClassName() {
 		return clazz.getName(); // reutrns  the package of where the class came from as well
+	}
+
+	public PrimaryKeyField getPrimaryKeyField() {
+		return primaryKeyField;
+	}
+
+	public void setPrimaryKeyField(PrimaryKeyField primaryKeyField) {
+		this.primaryKeyField = primaryKeyField;
+	}
+
+	public List<ColumnField> getColumnFields() {
+		return columnFields;
+	}
+
+	public void setColumnFields(List<ColumnField> columnFields) {
+		this.columnFields = columnFields;
+	}
+
+	public List<ForeignKeyField> getForeignKeyFields() {
+		return foreignKeyFields;
+	}
+
+	public void setForeignKeyFields(List<ForeignKeyField> foreignKeyFields) {
+		this.foreignKeyFields = foreignKeyFields;
+	}
+
+	@Override
+	public String toString() {
+		return "MetaModel [clazz=" + clazz + ", primaryKeyField=" + primaryKeyField + ", columnFields=" + columnFields
+				+ ", foreignKeyFields=" + foreignKeyFields + "]";
 	} 
 
+	
 }

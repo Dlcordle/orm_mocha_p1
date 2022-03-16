@@ -1,6 +1,9 @@
 package com.revature.driver;
 
+import java.util.LinkedList;
+
 import com.revature.service.Config;
+import com.revature.service.Parser;
 import com.revature.service.Session;
 
 public class TestDriver 
@@ -17,6 +20,15 @@ public class TestDriver
 		ses.setConfiguration(config);
 		
 		ses.getConnection();
+		
+		Parser parseTest = new Parser();
+		
+		LinkedList<Class<?>> testClassList = new LinkedList<>();
+		
+		testClassList.add(TestClass1.class);
+		System.out.println(parseTest.inspectClass(testClassList));
+		
+		
 	}
 
 }

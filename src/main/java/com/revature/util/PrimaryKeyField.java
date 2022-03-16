@@ -34,6 +34,11 @@ public class PrimaryKeyField {
 	public String getColumnName() {
 		return field.getAnnotation(Id.class).columnName();
 	}
+
+	@Override
+	public String toString() {
+		return "PrimaryKeyField [field=" + field + "]";
+	}
 	
 }
 

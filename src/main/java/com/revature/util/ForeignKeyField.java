@@ -38,4 +38,10 @@ public class ForeignKeyField {
 		return field.getAnnotation(JoinColumn.class).columnName(); // extract the columnName() property that the user sets
 	}
 
+	@Override
+	public String toString() {
+		return "ForeignKeyField [field=" + field + "]";
+	}
+
+	
 }

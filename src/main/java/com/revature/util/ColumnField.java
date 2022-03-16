@@ -51,4 +51,10 @@ public class ColumnField {
 		return field.getAnnotation(Column.class).columnName(); // extract the columnName() property that the user sets
 	}
 
+	@Override
+	public String toString() {
+		return "ColumnField [field=" + field + "]";
+	}
+
+	
 }
