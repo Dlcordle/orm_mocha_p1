@@ -12,10 +12,10 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Table {
 
-	// name, catalog, schema, unique constrants
+	// name, catalog, schema, unique constraints
 	
 	String tableName(); // @Table(tableName="table_name")
-	String tableCatalog(); //@Table(tableCatalog="table_catalog")
+	String tableCatalog() default ""; //@Table(tableCatalog="table_catalog")
 	String tableSchema(); //@Table(tableSchema="table_schema")
 	UniqueConstraint[] tableUniqueConstraints() default {};
 }
