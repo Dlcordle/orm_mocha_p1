@@ -1,6 +1,8 @@
 package com.revature.service;
 
+import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Queue;
 
 public class Config 
 {
@@ -8,14 +10,17 @@ public class Config
 	private String password;
 	private String url;
 	
+	private LinkedList<Class<?>> classesToRead;
+	
 	public Config() {
 		super();
 	}
-	public Config(String username, String password, String url, String schema) {
+	public Config(String username, String password, String url) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.url = url;
+		classesToRead = new LinkedList<Class<?>>();
 	}
 	
 	public String getUsername() {
@@ -35,6 +40,21 @@ public class Config
 	}
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	
+	public void addToClassQueue(Class<?> newClass)
+	{
+		classesToRead.add(newClass);
+	}
+	public Class<?> dequeueClassQueue()
+	{
+		return classesToRead.poll();
+	}
+	
+	public void setClassesToRead(LinkedList<Class<?>> newList)
+	{
+		classesToRead = newList;
 	}
 	
 	@Override
