@@ -13,6 +13,22 @@ public class InsertData {
 	private List<String> columnList;
 	private List<Object> valueList;
 
+	/**
+	 * This method inserts a row into the the table.
+	 * It takes in the table name, the table schema, 
+	 * a list of type String of the column names
+	 * and a list of type Object of the column values.
+	 * Storing the values as Objects allows us to decipher the
+	 * type due to String and Wrapper classes 
+	 * 
+	 * 
+	 * @param tableName
+	 * @param tableSchema
+	 * @param columnNames
+	 * @param columnValues
+	 * @return 1 for success, -1 for failure, 0 if nothing happened
+	 */
+	
 	public int insert(String tableName, String tableSchema, List<String> columnNames, List<Object> columnValues) {
 
 		int result = 0;
@@ -53,7 +69,10 @@ public class InsertData {
 //				String valueType = value.getClass().getSimpleName();
 //
 //				int position = i+1;
-//				
+//		
+//				// Find the type of the value being inserted into the prepared statement.
+//				// Must do this because value are stored as Objects (Strings and Wrapper classes) 
+//		
 //				if (valueType.equals("String")) {
 //					stmt.setString(position, (String) value);
 //				} else if (valueType.equals("Integer")) {
@@ -75,41 +94,4 @@ public class InsertData {
 
 		return result;
 	}
-
-	public static void main(String[] args) {
-		InsertData insertData = new InsertData();
-
-		List<String> cols = new ArrayList<String>();
-		cols.add("balance");
-		cols.add("is_active");
-		cols.add("user_id");
-
-		List<Object> vals = new ArrayList<Object>();
-		vals.add(4000.00);
-		vals.add(true);
-		vals.add(10);
-
-		insertData.insert("accounts", "proj1", cols, vals);
-
-	}
-
-
-	public void setType(PreparedStatement stmt, int position, Object value) {
-		
-		String type = value.getClass().getSimpleName();
-		try {
-			if (type.equals("String")) {
-				stmt.setString(position, (String) value);
-			} else if (type.equals("int")) {
-				stmt.setInt(position, (int) value);
-			} else if (type.equals("double")) {
-				stmt.setDouble(position, (double) value);
-			} else if (type.equals("boolean")) {
-				stmt.setBoolean(position, (boolean) value);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
 }
