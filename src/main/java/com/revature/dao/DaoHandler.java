@@ -83,8 +83,13 @@ public class DaoHandler
 		read.read(createFrom.getTableName(), 0);
 	}
 	
-	public void UpdateExistingData()
+	public void UpdateExistingData(MetaModel<?> createFrom, String updateColumnName, Object updateThisValue, int primaryKey)
+	
 	{
-		
+		UpdateTable up = new UpdateTable();
+		up.update(createFrom.getTableName(), updateColumnName, updateThisValue, createFrom.getPrimaryKey().getName(), primaryKey);
+												
+												
+												
 	}
 }
