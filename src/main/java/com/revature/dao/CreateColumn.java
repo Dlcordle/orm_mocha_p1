@@ -1,8 +1,15 @@
 package com.revature.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.LinkedHashMap;
 
+import com.revature.util.ConnectionUtil;
+
 public class CreateColumn {
+
+	Connection conn = ConnectionUtil.getConnection();
 
 	private String tableName; // @Table tableName
 	private String tableSchema; // @Table tableSchema
@@ -77,13 +84,13 @@ public class CreateColumn {
 		
 		// Ready for a connection
 
-//		try {
-//			PreparedStatement stmt = conn.prepareStatement(defineAddColumnSQL);
-//			stmt.executeUpdate();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			PreparedStatement stmt = conn.prepareStatement(defineAddColumnSQL);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 
 		return result;

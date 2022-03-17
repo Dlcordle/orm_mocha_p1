@@ -1,7 +1,6 @@
 package com.revature.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -12,6 +11,7 @@ import com.revature.service.Parser;
 import com.revature.util.ColumnField;
 import com.revature.util.ForeignKeyField;
 import com.revature.util.MetaModel;
+import com.revature.util.PrimaryKeyField;
 
 public class DaoHandler 
 {
@@ -57,24 +57,29 @@ public class DaoHandler
 																				true, columnsToSend, foreignKeyList);
 		tableTool.createTable();
 	}
-	public void CreateNewColumn(MetaModel<?> createFrom)
+	public void CreateNewColumn(MetaModel<?> createFrom, LinkedHashMap<String, String> columnData)
 	{
-		
+		CreateColumn createColumn = new CreateColumn();
+		createColumn.addColumn(createFrom.getTableName(), createFrom.getTableSchema(), columnData);
 	}
 	
-	public void DeleteExistingData()
+	public void DeleteExistingData(MetaModel<?> createFrom, int primaryKey)
 	{
-		
+		DeleteData deleteData = new DeleteData();
+		String primaryKeyColumnName = createFrom.getPrimaryKeyField().getColumnName();
+		deleteData.delete(createFrom.getTableName(), createFrom.getTableSchema(), primaryKeyColumnName, primaryKey);
 	}
 	
-	public void DeleteExistingTable()
+	public void DeleteExistingTable(String tableName, String tableSchema)
 	{
-		
+		DeleteTable deleteTable = new DeleteTable();
+		deleteTable.dropTable();
 	}
 	
-	public void InsertNewData()
+	public void InsertNewData(MetaModel<?> createFrom, List<String> columnNames, List<Object> columnValues)
 	{
-		
+		InsertData insertData = new InsertData();
+		insertData.insert(createFrom.getTableName(), createFrom.getTableSchema(), columnNames, columnValues);
 	}
 	
 	public void PrintTable(MetaModel<?> createFrom)

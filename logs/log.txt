@@ -272,3 +272,7 @@
 2022-03-17 17:31:40 INFO  revature.service.Session:50 - Connected to database
 2022-03-17 17:31:41 INFO  revature.service.Session:50 - Connected to database
 2022-03-17 17:31:42 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 17:49:02 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 17:49:02 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-17 17:49:03 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 17:49:04 INFO  revature.service.Session:50 - Connected to database

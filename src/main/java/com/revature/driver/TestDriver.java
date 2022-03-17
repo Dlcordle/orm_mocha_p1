@@ -2,9 +2,11 @@ package com.revature.driver;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.revature.dao.CreateColumn;
 import com.revature.dao.DaoHandler;
 import com.revature.dao.ReadTable;
 import com.revature.dao.UpdateTable;
@@ -49,20 +51,33 @@ public class TestDriver
         		       } catch(Exception e) {
         		          e.printStackTrace();
         		       }		
-//      
-      ReadTable read = new ReadTable();
+////      
+//      ReadTable read = new ReadTable();
+////		
+//		read.read("recipes",0);
 //		
-		read.read("recipes",0);
-		
-	UpdateTable up = new UpdateTable();
-	up.update("recipes", "recipe_name","enchilada", "recipe_id", 1);
-	
-	read.read("recipes", 0);
-	}
-      
+//	UpdateTable up = new UpdateTable();
+//	up.update("recipes", "recipe_name","enchilada", "recipe_id", 1);
+//	
+//	read.read("recipes", 0);
+//      
 		
 	
 	//read.read("recipes",0);
+	
+	LinkedHashMap<String, String> hashMap2 = new LinkedHashMap();
+
+	hashMap2.put("columnName", "extra_column_1");
+	hashMap2.put("columnType", "String");
+	hashMap2.put("isUnique", "false");
+	hashMap2.put("isNullable", "true");
+	hashMap2.put("columnLength", "50");
+	hashMap2.put("columnPrecision", "0");
+
+	CreateColumn cc = new CreateColumn();
+	cc.addColumn("users2", "mocha", hashMap2);
+
+	}
 
 }
 	
