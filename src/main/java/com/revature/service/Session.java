@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 import javax.security.auth.login.Configuration;
 
@@ -21,9 +23,12 @@ public class Session
 	private static ConnectionUtil connectionU;
 	private static DaoHandler dao;
 	
+	private static Parser parse;
+	
 	public Session()
 	{
 		connectionU = new ConnectionUtil();
+		parse = new Parser();
 	}
 	
 	public Session(Config configuration)
@@ -48,16 +53,46 @@ public class Session
 		return connectionU.getConnection();
 	}
 	
-	public void buildTables()
+	public void buildAllTables()
 	{
 		for(MetaModel<?> holder : configuration.getModels())
 		{
-			dao.CreateNewTable(null, conn);
+			dao.CreateNewTable(holder, conn);
 		}
 	}
 	
-	public void save(Object newObject, Serializable id)
+	public void buildNewTable(MetaModel<?> toInsert)
 	{
-		
+		dao.CreateNewTable(toInsert, conn);
 	}
+	
+	public void AddColumn(MetaModel<?> fromTable, LinkedHashMap<String, String> data)
+	{
+		dao.CreateNewColumn(fromTable, data);
+	}
+	
+	public void DeleteExistingTable(String tableName, String tableSchema)
+	{
+		dao.DeleteExistingTable(tableName, tableSchema);
+	}
+	
+	public void InsertNewData(MetaModel<?> createFrom, List<String> columnNames, List<Object> columnValues)
+	{
+		dao.InsertNewData(createFrom, columnNames, columnValues);
+	}
+	
+	public void PrintTable(MetaModel<?> createFrom)
+	{
+		dao.PrintTable(createFrom);
+	}
+	
+	public void UpdateExistingData(MetaModel<?> createFrom, String updateColumnName, Object updateThisValue, int primaryKey)
+	{
+		dao.UpdateExistingData(createFrom, updateColumnName, updateThisValue, primaryKey);
+	}
+	
+//	public void save(Object newObject, Serializable id)
+//	{
+//		newObject.getClass().
+//	}
 }

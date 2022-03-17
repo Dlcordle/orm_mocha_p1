@@ -16,6 +16,8 @@ public class Config
 	private LinkedList<Class<?>> classesToRead;
 	private LinkedList<MetaModel<?>> models;
 	
+	private Parser parse;
+	
 	public Config() {
 		super();
 	}
@@ -30,10 +32,9 @@ public class Config
 		
 		models = new LinkedList<MetaModel<?>>();
 		
-		for(Class<?> clazz : classesToRead)
-		{
-			models.add(new MetaModel(clazz));
-		}
+		parse = new Parser();
+		
+		models = (LinkedList<MetaModel<?>>) parse.inspectClass(classesToRead);
 	}
 	
 	public String getUsername() {
