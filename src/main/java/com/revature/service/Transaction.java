@@ -1,5 +1,6 @@
 package com.revature.service;
 
-public class Transaction {
-
+public class Transaction 
+{
+	
 }

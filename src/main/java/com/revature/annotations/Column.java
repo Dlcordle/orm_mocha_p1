@@ -11,5 +11,9 @@ public @interface Column { // technically an annotation is referred to as a mark
 
 	// adding a property of an annotation
 	String columnName(); // this would allow the user to use it like so @Column(columnName="first_name")
-	
+	String columnType();
+	String isUnique();
+	String isNullable();
+	String columnLength();
+	String columnPrecision();
 }

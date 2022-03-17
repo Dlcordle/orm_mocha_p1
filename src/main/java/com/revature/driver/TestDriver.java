@@ -3,12 +3,15 @@ package com.revature.driver;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.LinkedList;
+import java.util.List;
 
+import com.revature.dao.DaoHandler;
 import com.revature.dao.ReadTable;
 import com.revature.dao.UpdateTable;
 import com.revature.service.Config;
 import com.revature.service.Parser;
 import com.revature.service.Session;
+import com.revature.util.MetaModel;
 
 public class TestDriver 
 {
@@ -23,18 +26,20 @@ public class TestDriver
 		
 		ses.setConfiguration(config);
 		
-		ses.getConnection();
+		Connection conn = ses.getConnection();
 		
 		Parser parseTest = new Parser();
 		
 		LinkedList<Class<?>> testClassList = new LinkedList<>();
 		
-		testClassList.add(TestClass1.class);
+		//testClassList.add(TestClass1.class);
+		testClassList.add(TestClass2.class);
 		
-		System.out.println(parseTest.inspectClass(testClassList));
-	
 		
-	
+		List<MetaModel<?>> holder = parseTest.inspectClass(testClassList);
+		//System.out.println(parseTest.inspectClass(testClassList));
+		DaoHandler dao = new DaoHandler();
+		dao.CreateNewTable(holder.get(0), conn);
 		
 		Connection con = null;
       try {

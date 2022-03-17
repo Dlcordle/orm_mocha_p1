@@ -50,6 +50,31 @@ public class ColumnField {
 	public String getColumnName() {
 		return field.getAnnotation(Column.class).columnName(); // extract the columnName() property that the user sets
 	}
+	
+	public String getColumnType()
+	{
+		return field.getAnnotation(Column.class).columnType();
+	}
+	
+	public String getIsUnique()
+	{
+		return field.getAnnotation(Column.class).isUnique();
+	}
+	
+	public String getIsNullable()
+	{
+		return field.getAnnotation(Column.class).isNullable();
+	}
+	
+	public String getColumnLength()
+	{
+		return field.getAnnotation(Column.class).columnLength();
+	}
+	
+	public String getColumnPrecision()
+	{
+		return field.getAnnotation(Column.class).columnPrecision();
+	}
 
 	@Override
 	public String toString() {

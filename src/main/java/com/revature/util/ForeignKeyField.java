@@ -2,6 +2,7 @@ package com.revature.util;
 
 import java.lang.reflect.Field;
 
+import com.revature.annotations.Column;
 import com.revature.annotations.JoinColumn;
 
 public class ForeignKeyField {
@@ -43,5 +44,28 @@ public class ForeignKeyField {
 		return "ForeignKeyField [field=" + field + "]";
 	}
 
+	public String getIsUnique()
+	{
+		return field.getAnnotation(Column.class).isUnique();
+	}
 	
+	public String getIsNullable()
+	{
+		return field.getAnnotation(Column.class).isNullable();
+	}
+	
+	public String getColumnLength()
+	{
+		return field.getAnnotation(Column.class).columnLength();
+	}
+	
+	public String getColumnType()
+	{
+		return field.getAnnotation(Column.class).columnType();
+	}
+	
+	public String getColumnPrecision()
+	{
+		return field.getAnnotation(Column.class).columnPrecision();
+	}
 }

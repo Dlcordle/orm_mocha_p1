@@ -94,9 +94,12 @@ public class CreateTable {
 
 		defineTableSQL += ");";
 
+		System.out.println(defineTableSQL);
+
 		// Ready for a connection
 
 		try {
+			System.out.println(defineTableSQL);
 			PreparedStatement stmt = conn.prepareStatement(defineTableSQL);
 			stmt.executeUpdate();
 
@@ -120,14 +123,19 @@ public class CreateTable {
 		// Variable for SQL script to return
 		String sqlTypeReturn = "";
 
-		if (cols != null) {
+		if (cols.isEmpty()) {
 
 			// Iterate through columns based on how many
 			// works for @Columns and @JoinColumn columns
 			for (int i = 0; i < cols.size(); i++) {
+
+				System.out.println(i);
 				String sqlType = "";
 				String columnName = cols.get(i).get("columnName");
 				String columnType = cols.get(i).get("columnType");
+
+				System.out.println("Column type: " + columnType);
+
 				String isUnique = cols.get(i).get("isUnique");
 				String isNullable = cols.get(i).get("isNullable");
 				String columnLength = cols.get(i).get("columnLength");
@@ -154,11 +162,20 @@ public class CreateTable {
 				} else if (columnType == "boolean") {
 					sqlType = "BOOLEAN";
 				} else {
-					sqlType = null;
+					sqlType = "";
 				}
 
-				sqlTypeReturn += columnName + " " + sqlType + (isUnique.equals("true") ? " UNIQUE" : "")
-						+ (isNullable.equals("false") ? " NOT NULL" : "") + ", ";
+				System.out.println("sqlTypeReturn: " + sqlTypeReturn);
+				System.out.println("sqlType:" + sqlType);
+				System.out.println("isUnique: " + isUnique);
+				System.out.println("isNullable: " + isNullable);
+
+				sqlTypeReturn += columnName + " " + sqlType + (isUnique == "true" ? " UNIQUE" : "")
+						+ (isNullable == "false" ? " NOT NULL" : "");
+
+				if (i != (cols.size() - 1)) {
+					sqlTypeReturn += ",";
+				}
 			}
 		} else {
 			System.out.println("You left out some information.");

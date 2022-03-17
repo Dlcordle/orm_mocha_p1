@@ -1,5 +1,6 @@
 package com.revature.service;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -42,5 +43,10 @@ public class Session
 	public Connection getConnection()
 	{
 		return connection.getConnection();
+	}
+	
+	public void save(Object newObject, Serializable id)
+	{
+		
 	}
 }

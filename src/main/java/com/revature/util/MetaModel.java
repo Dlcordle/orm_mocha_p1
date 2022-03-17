@@ -8,6 +8,7 @@ import com.revature.annotations.Column;
 import com.revature.annotations.Entity;
 import com.revature.annotations.Id;
 import com.revature.annotations.JoinColumn;
+import com.revature.annotations.Table;
 
 /**
  * The purpose of this class is to gather as much information as possible about
@@ -18,6 +19,8 @@ import com.revature.annotations.JoinColumn;
 public class MetaModel<T> 
 { 
 	private Class<?> clazz;
+	private String tableName = "";
+	private String tableSchema = "";
 	private PrimaryKeyField primaryKeyField;
 	private List<ColumnField> columnFields;
 	private List<ForeignKeyField> foreignKeyFields;
@@ -30,6 +33,7 @@ public class MetaModel<T>
 			throw new IllegalStateException("Cannot create MetaModel object from this class! Provided class "
 					+ clazz.getName() + " is not annotated with @Entity");
 		}
+		
 		// if it IS annotated with @Entity, generate a MetaModel object of it.
 		return new MetaModel<Class<?>>(clazz);
 	}
@@ -40,6 +44,36 @@ public class MetaModel<T>
 							// its fields
 		this.columnFields = new LinkedList<ColumnField>();
 		this.foreignKeyFields = new LinkedList<ForeignKeyField>();
+		setTableNameSchema();
+	}
+	
+	
+	
+	public String getTableName() {
+		return tableName;
+	}
+	
+	public void setTableNameSchema() {
+		try {
+			System.out.println(clazz);
+			tableName = clazz.getAnnotation(Table.class).tableName();
+			tableSchema = clazz.getAnnotation(Table.class).tableSchema();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public String getTableSchema() {
+		return tableSchema;
+	}
+
+	public void setTableSchema(String tableSchema) {
+		this.tableSchema = tableSchema;
 	}
 
 	// getColumns() - returns a list of ColumnField

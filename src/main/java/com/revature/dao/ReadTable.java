@@ -29,9 +29,9 @@ public class ReadTable {
 			while(rs.next()) {
 				int colCount = rs.getMetaData().getColumnCount();
 				for (int i = 1; i<= colCount; i++) {
-					System.out.println(rs.getObject(i));
+					System.out.print(rs.getObject(i) + "|");
 				}
-				
+				System.out.println();
 			}
 					
 					

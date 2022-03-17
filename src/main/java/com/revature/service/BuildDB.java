@@ -4,9 +4,14 @@ public class BuildDB
 {
 	private Config configuration;
 	
-	public BuildDB(Config con)
+	public BuildDB(Config config)
 	{
-		configuration = con;
+		Session ses = new Session();
+		Parser parse = new Parser();
+		configuration = config;
 		
+		ses.setConfiguration(configuration);
+		
+		ses.getConnection();
 	}
 }
