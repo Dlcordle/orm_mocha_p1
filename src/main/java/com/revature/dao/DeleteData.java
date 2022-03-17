@@ -1,7 +1,15 @@
 package com.revature.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.revature.util.ConnectionUtil;
+
 public class DeleteData 
 {
+
+	Connection conn = ConnectionUtil.getConnection();
 
 	private String tableName; // @Table tableName
 	private String tableSchema; // @Table tableSchema
@@ -34,26 +42,26 @@ public class DeleteData
 
 		// Ready for a connection
 		
-//		try {
-//			PreparedStatement stmt = conn.prepareStatement(defineDeleteSQL);
-//
-//			// Find the type of the value being inserted into the prepared statement.
-//			// Must do this because value are stored as Objects (Strings and Wrapper classes) 
-//			
-//			if (deleteValueType.equals("String")) {
-//				stmt.setString(1, (String) deleteThisValue);
-//			} else if (deleteValueType.equals("Integer")) {
-//				stmt.setInt(1, (int) deleteThisValue);
-//			} else if (deleteValueType.equals("Double")) {
-//				stmt.setDouble(1, (double) deleteThisValue);
-//			} else if (deleteValueType.equals("Boolean")) {
-//				stmt.setBoolean(1, (boolean) deleteThisValue);
-//			}
-//			result = stmt.executeUpdate();
-//		} catch (SQLException e) {
-//			result = -1;
-//			e.printStackTrace();
-//		}
+		try {
+			PreparedStatement stmt = conn.prepareStatement(defineDeleteSQL);
+
+			// Find the type of the value being inserted into the prepared statement.
+			// Must do this because value are stored as Objects (Strings and Wrapper classes) 
+			
+			if (deleteValueType.equals("String")) {
+				stmt.setString(1, (String) deleteThisValue);
+			} else if (deleteValueType.equals("Integer")) {
+				stmt.setInt(1, (int) deleteThisValue);
+			} else if (deleteValueType.equals("Double")) {
+				stmt.setDouble(1, (double) deleteThisValue);
+			} else if (deleteValueType.equals("Boolean")) {
+				stmt.setBoolean(1, (boolean) deleteThisValue);
+			}
+			result = stmt.executeUpdate();
+		} catch (SQLException e) {
+			result = -1;
+			e.printStackTrace();
+		}
 		
 		return result;
 	}

@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,7 +8,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.revature.util.ConnectionUtil;
+
 public class CreateTable {
+	Connection conn = ConnectionUtil.getConnection();
 
 	private String tableName; // @Table tableName
 	private String tableSchema; // @Table tableSchema
@@ -92,13 +96,13 @@ public class CreateTable {
 
 		// Ready for a connection
 
-//		try {
-//			PreparedStatement stmt = conn.prepareStatement(defineTableSQL);
-//			stmt.executeUpdate();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			PreparedStatement stmt = conn.prepareStatement(defineTableSQL);
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 		return defineTableSQL;
 

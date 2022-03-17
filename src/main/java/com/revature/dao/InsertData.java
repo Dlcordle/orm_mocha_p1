@@ -1,12 +1,17 @@
 package com.revature.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.util.ConnectionUtil;
+
 
 public class InsertData {
+
+	Connection conn = ConnectionUtil.getConnection();
 
 	private String tableName; // @Table tableName
 	private String tableSchema; // @Table tableSchema
@@ -60,36 +65,36 @@ public class InsertData {
 
 		// Ready for a connection
 
-//		try {
-//			PreparedStatement stmt = conn.prepareStatement(defineInsertSQL);
-//
-//			for (int i = 0; i < columnValues.size(); i++) {
-//				
-//				Object value = columnValues.get(i);
-//				String valueType = value.getClass().getSimpleName();
-//
-//				int position = i+1;
-//		
-//				// Find the type of the value being inserted into the prepared statement.
-//				// Must do this because value are stored as Objects (Strings and Wrapper classes) 
-//		
-//				if (valueType.equals("String")) {
-//					stmt.setString(position, (String) value);
-//				} else if (valueType.equals("Integer")) {
-//					stmt.setInt(position, (int) value);
-//				} else if (valueType.equals("Double")) {
-//					stmt.setDouble(position, (double) value);
-//				} else if (valueType.equals("Boolean")) {
-//					stmt.setBoolean(position, value.equals(true));
-//				}
-//			}
-//			System.out.println(stmt);
-//
-//			stmt.executeUpdate();
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			PreparedStatement stmt = conn.prepareStatement(defineInsertSQL);
+
+			for (int i = 0; i < columnValues.size(); i++) {
+				
+				Object value = columnValues.get(i);
+				String valueType = value.getClass().getSimpleName();
+
+				int position = i+1;
+		
+				// Find the type of the value being inserted into the prepared statement.
+				// Must do this because value are stored as Objects (Strings and Wrapper classes) 
+		
+				if (valueType.equals("String")) {
+					stmt.setString(position, (String) value);
+				} else if (valueType.equals("Integer")) {
+					stmt.setInt(position, (int) value);
+				} else if (valueType.equals("Double")) {
+					stmt.setDouble(position, (double) value);
+				} else if (valueType.equals("Boolean")) {
+					stmt.setBoolean(position, value.equals(true));
+				}
+			}
+			System.out.println(stmt);
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 
 		return result;
