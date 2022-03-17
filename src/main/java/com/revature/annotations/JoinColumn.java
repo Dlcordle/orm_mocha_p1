@@ -17,6 +17,11 @@ import java.lang.annotation.Target;
 public @interface JoinColumn {
 
 	String columnName();
+	String columnType();
+	String isUnique();
+	String isNullable();
+	String columnLength();
+	String columnPrecision();
 	
 //	int mappedBy(); // this would point to the property of the object whose primary key this foreign key is referring to
 	
