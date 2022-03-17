@@ -12,3 +12,86 @@
 2022-03-16 17:47:16 INFO  revature.service.Session:50 - Connected to database
 2022-03-16 17:47:16 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
 2022-03-16 17:47:16 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-16 19:28:09 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-16 19:28:09 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-16 19:30:58 INFO  revature.service.Session:50 - Connected to database
+2022-03-16 19:30:58 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-16 19:30:58 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-16 19:35:31 INFO  revature.service.Session:50 - Connected to database
+2022-03-16 19:35:31 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-16 19:35:31 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-16 20:24:08 INFO  revature.service.Session:50 - Connected to database
+2022-03-16 20:24:08 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-16 20:24:08 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-16 20:24:09 INFO  revature.service.Session:50 - Connected to database
+2022-03-16 20:24:10 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:42:08 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:42:08 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 08:42:08 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 08:42:09 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:42:09 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:55:31 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:55:31 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 08:55:31 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 08:55:32 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:55:32 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:59:15 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:59:15 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 08:59:15 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 08:59:16 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 08:59:17 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:00:02 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:00:02 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 09:00:02 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 09:00:03 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:00:03 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:01:32 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:01:32 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 09:01:32 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 09:01:33 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:18:55 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:18:55 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 09:18:55 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 09:18:55 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:18:56 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:40:30 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:40:30 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 09:40:30 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 09:40:31 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:40:31 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:49:41 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:49:41 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 09:49:41 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 09:49:43 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 09:49:44 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 10:05:59 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 10:05:59 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 10:05:59 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 10:05:59 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 10:06:01 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 10:55:48 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 10:55:48 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 10:55:48 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 10:55:49 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 10:55:49 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:29:42 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:29:42 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 13:29:42 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 13:29:44 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:29:44 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:34:04 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:34:04 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 13:34:04 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 13:34:05 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:34:06 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:35:34 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:35:34 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 13:35:34 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 13:35:35 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:35:36 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:36:54 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:36:54 INFO  revature.service.Parser:30 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-17 13:36:54 INFO  revature.service.Parser:39 - No columns found in: com.revature.driver.TestClass1
+2022-03-17 13:36:55 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:36:55 INFO  revature.service.Session:50 - Connected to database
+2022-03-17 13:36:56 INFO  revature.service.Session:50 - Connected to database

@@ -1,5 +1,48 @@
 package com.revature.dao;
 
-public class ReadTable {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.List;
 
+import com.revature.annotations.Column;
+import com.revature.util.ConnectionUtil;
+
+public class ReadTable {
+	
+	private String tableName;
+	
+	public List<Column> read(String tableName, int index) {
+		
+		String sql = "SELECT * FROM " + tableName;
+		
+		Connection conn = ConnectionUtil.getConnection();
+		
+		try {
+			
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				int colCount = rs.getMetaData().getColumnCount();
+				for (int i = 1; i<= colCount; i++) {
+					System.out.println(rs.getObject(i));
+				}
+				
+			}
+					
+					
+		
+		
+		} catch(Exception e) {
+			
+		}
+		return null;
+
+	
+	}	
+	
 }
