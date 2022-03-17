@@ -9,40 +9,51 @@ import javax.security.auth.login.Configuration;
 
 import org.apache.log4j.Logger;
 
+import com.revature.dao.DaoHandler;
 import com.revature.util.ConnectionUtil;
+import com.revature.util.MetaModel;
 
 public class Session 
 {
 	private static Logger logger = Logger.getLogger(Session.class);
 	private static Connection conn = null;
 	private static Config configuration = null;
-	private static ConnectionUtil connection;
+	private static ConnectionUtil connectionU;
+	private static DaoHandler dao;
 	
 	public Session()
 	{
-		connection = new ConnectionUtil();
+		connectionU = new ConnectionUtil();
 	}
 	
 	public Session(Config configuration)
 	{
-		connection = new ConnectionUtil();
+		connectionU = new ConnectionUtil();
 		this.configuration = configuration;
-		connection.setUrl(configuration.getUrl());
-		connection.setUsername(configuration.getUsername());
-		connection.setPassword(configuration.getPassword());
+		connectionU.setUrl(configuration.getUrl());
+		connectionU.setUsername(configuration.getUsername());
+		connectionU.setPassword(configuration.getPassword());
 	}
 	
 	public void setConfiguration(Config configuration)
 	{
 		this.configuration = configuration;
-		connection.setUrl(configuration.getUrl());
-		connection.setUsername(configuration.getUsername());
-		connection.setPassword(configuration.getPassword());
+		connectionU.setUrl(configuration.getUrl());
+		connectionU.setUsername(configuration.getUsername());
+		connectionU.setPassword(configuration.getPassword());
 	}
 	
 	public Connection getConnection()
 	{
-		return connection.getConnection();
+		return connectionU.getConnection();
+	}
+	
+	public void buildTables()
+	{
+		for(MetaModel<?> holder : configuration.getModels())
+		{
+			dao.CreateNewTable(null, conn);
+		}
 	}
 	
 	public void save(Object newObject, Serializable id)

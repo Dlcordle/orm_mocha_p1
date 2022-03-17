@@ -1,8 +1,11 @@
 package com.revature.service;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
+
+import com.revature.util.MetaModel;
 
 public class Config 
 {
@@ -11,16 +14,26 @@ public class Config
 	private String url;
 	
 	private LinkedList<Class<?>> classesToRead;
+	private LinkedList<MetaModel<?>> models;
 	
 	public Config() {
 		super();
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Config(String username, String password, String url) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.url = url;
 		classesToRead = new LinkedList<Class<?>>();
+		
+		models = new LinkedList<MetaModel<?>>();
+		
+		for(Class<?> clazz : classesToRead)
+		{
+			models.add(new MetaModel(clazz));
+		}
 	}
 	
 	public String getUsername() {
@@ -42,10 +55,17 @@ public class Config
 		this.url = url;
 	}
 	
+	public List<MetaModel<?>> getModels()
+	{
+		return models;
+	}
 	
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void addToClassQueue(Class<?> newClass)
 	{
 		classesToRead.add(newClass);
+		models.add(new MetaModel(newClass));	
 	}
 	public Class<?> dequeueClassQueue()
 	{
