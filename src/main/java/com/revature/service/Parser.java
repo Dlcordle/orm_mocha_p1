@@ -11,7 +11,7 @@ public class Parser
 {
 	private static Logger logger = Logger.getLogger(Parser.class);
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<MetaModel<?>> inspectClass(LinkedList<Class<?>> clazzes)
 	{
 		LinkedList<MetaModel<?>> classList = new LinkedList<>();

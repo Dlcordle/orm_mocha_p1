@@ -26,8 +26,9 @@ public class TestDriver
 		LinkedList<Class<?>> testClassList = new LinkedList<>();
 		
 		testClassList.add(TestClass1.class);
-		System.out.println(parseTest.inspectClass(testClassList));
 		
+		System.out.println(parseTest.inspectClass(testClassList));
+	
 		
 	}
 
