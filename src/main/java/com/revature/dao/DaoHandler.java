@@ -49,7 +49,7 @@ public class DaoHandler
 			 foreignKeyList.get(count).put("columnPrecision",  foreignHolder.getColumnPrecision());
 		}
 		
-		System.out.println(foreignKeyList == null);
+		//System.out.println(foreignKeyList == null);
 		
 		CreateTable tableTool = new CreateTable(createFrom.getTableName(),
 																				createFrom.getTableSchema(),
@@ -57,7 +57,7 @@ public class DaoHandler
 																				true, columnsToSend, foreignKeyList);
 		tableTool.createTable();
 	}
-	public void CreateNewColumn()
+	public void CreateNewColumn(MetaModel<?> createFrom)
 	{
 		
 	}
@@ -77,9 +77,10 @@ public class DaoHandler
 		
 	}
 	
-	public void PrintTable()
+	public void PrintTable(MetaModel<?> createFrom)
 	{
-		
+		ReadTable read = new ReadTable();
+		read.read(createFrom.getTableName(), 0);
 	}
 	
 	public void UpdateExistingData()
