@@ -164,8 +164,12 @@ public class MetaModel<T>
 
 			if (foreignKeyFields != null && foreignKey != null) {
 				//System.out.println(field);
-				foreignKeyFields.add(new ForeignKeyField(field));
+				if(!foreignKeyFields.contains(new ForeignKeyField(field)))
+				{
+					foreignKeyFields.add(new ForeignKeyField(field));
+				}
 			}
+
 		}
 		try
 		{

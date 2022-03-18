@@ -193,7 +193,7 @@ public class CreateTable {
 				sqlTypeReturn += columnName + " " + sqlType +" "+ (isUnique == "true" ? " UNIQUE" : "")
 						+ (isNullable == "false" ? " NOT NULL" : "");
 
-				if (i != (cols.size() - 1)) {
+				if (i != (cols.size())) {
 					sqlTypeReturn += ", ";
 				}
 			}
