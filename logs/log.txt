@@ -654,3 +654,66 @@
 2022-03-18 03:40:57 INFO  revature.service.Session:50 - Connected to database
 2022-03-18 03:40:57 INFO  revature.service.Session:50 - Connected to database
 2022-03-18 03:40:58 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:37 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:37 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:50:37 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:50:37 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:50:37 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:50:38 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:38 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.tomato (testIntARoo SERIAL PRIMARY KEY, testString VARCHAR(50) , testint INT );
+2022-03-18 03:50:38 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:38 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.potato (testIntARoo2 SERIAL PRIMARY KEY, testString VARCHAR(50) , testint2 INT );
+2022-03-18 03:50:39 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:40 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:41 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:51 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:51 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:50:51 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:50:51 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:50:51 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:50:52 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:52 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.tomato (testIntARoo SERIAL PRIMARY KEY, testString VARCHAR(50) , testint INT );
+2022-03-18 03:50:52 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:52 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.potato (testIntARoo2 SERIAL PRIMARY KEY, testString VARCHAR(50) , testint2 INT );
+2022-03-18 03:50:53 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:53 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:50:54 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:42 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:42 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:51:42 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:51:42 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:51:42 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:51:42 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:42 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.tomato (testIntARoo SERIAL PRIMARY KEY, testString VARCHAR(50) , testint INT );
+2022-03-18 03:51:43 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:43 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.potato (testIntARoo2 SERIAL PRIMARY KEY, testString VARCHAR(50) , testint2 INT );
+2022-03-18 03:51:43 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:44 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:45 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:51:45 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:35 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:35 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:52:35 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:52:35 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:52:35 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:52:36 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:36 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.tomato (testIntARoo SERIAL PRIMARY KEY, testString VARCHAR(50) , testint INT );
+2022-03-18 03:52:36 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:36 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.potato (testIntARoo2 SERIAL PRIMARY KEY, testString VARCHAR(50) , testint2 INT );
+2022-03-18 03:52:37 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:38 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:38 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:52:39 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:01 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:01 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:54:01 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass1
+2022-03-18 03:54:01 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:54:01 WARN  revature.util.MetaModel:182 - No foreign keys found in: com.revature.driver.TestClass2
+2022-03-18 03:54:02 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:02 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.tomato (testIntARoo SERIAL PRIMARY KEY, testString VARCHAR(50) , testint INT );
+2022-03-18 03:54:02 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:02 INFO  revature.dao.CreateTable:103 - CREATE TABLE IF NOT EXISTS mocha.potato (testIntARoo2 SERIAL PRIMARY KEY, testString VARCHAR(50) , testint2 INT );
+2022-03-18 03:54:03 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:04 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:04 INFO  revature.service.Session:50 - Connected to database
+2022-03-18 03:54:05 INFO  revature.service.Session:50 - Connected to database

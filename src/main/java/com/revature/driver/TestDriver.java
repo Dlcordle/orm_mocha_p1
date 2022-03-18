@@ -54,7 +54,7 @@ public class TestDriver
 		
 		ses.updateExistingData(holder.get(0), "Lettuce", "BLEH", 0);
 		
-		//ses.
+		ses.deleteExistingTable("potato", "mocha");
 	}
 
 }

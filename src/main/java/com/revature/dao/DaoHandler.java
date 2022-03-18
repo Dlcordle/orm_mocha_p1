@@ -82,7 +82,7 @@ public class DaoHandler {
 	}
 
 	public void DeleteExistingTable(String tableName, String tableSchema) {
-		DeleteTable deleteTable = new DeleteTable();
+		DeleteTable deleteTable = new DeleteTable(tableName, tableSchema);
 		deleteTable.dropTable();
 	}
 

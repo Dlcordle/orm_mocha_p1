@@ -46,6 +46,7 @@ public class DeleteTable {
 		// Ready for a connection
 
 		try {
+			System.out.println(defineTableSQL);
 			PreparedStatement stmt = conn.prepareStatement(defineTableSQL);
 			stmt.executeUpdate();
 
