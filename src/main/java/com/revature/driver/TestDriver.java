@@ -51,6 +51,10 @@ public class TestDriver
 		newColInfo.add("Lettuce Good");
 		
 		ses.insertNewData(holder.get(0), newColInfo);
+		
+		ses.updateExistingData(holder.get(0), "Lettuce", "BLEH", 0);
+		
+		//ses.
 	}
 
 }

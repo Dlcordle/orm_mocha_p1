@@ -41,6 +41,7 @@ public class DaoHandler
 		}
 		
 		List<LinkedHashMap<String, String>> foreignKeyList = new ArrayList<LinkedHashMap<String, String>>();
+		count = 0;
 		
 		for(ForeignKeyField foreignHolder : createFrom.getForeignKeyFields())
 		{
