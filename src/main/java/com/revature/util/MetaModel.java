@@ -83,6 +83,11 @@ public class MetaModel<T>
 	public void setTableSchema(String tableSchema) {
 		this.tableSchema = tableSchema;
 	}
+	
+	public void InsertColumn(ColumnField newCol)
+	{
+		columnFields.add(newCol);
+	}
 
 	// getColumns() - returns a list of ColumnField
 	public List<ColumnField> getColumns() {
@@ -208,6 +213,11 @@ public class MetaModel<T>
 		this.foreignKeyFields = foreignKeyFields;
 	}
 
+	public void AddNewColumnField(Field field)
+	{
+		columnFields.add(new ColumnField(field));
+	}
+	
 	@Override
 	public String toString() {
 		return "MetaModel [clazz=" + clazz + ", primaryKeyField=" + primaryKeyField + ", columnFields=" + columnFields

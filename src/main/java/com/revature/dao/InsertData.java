@@ -42,13 +42,22 @@ public class InsertData {
 
 		String placeholders = "";
 
-		if (columnNames != null && columnValues != null) {
-			if (columnNames.size() == columnValues.size()) {
-				for (int i = 0; i < columnNames.size(); i++) {
-					if (i != (columnNames.size() - 1)) {
+		System.out.println(columnNames.size());
+		System.out.println(columnValues.size());
+		
+		if (!columnNames.isEmpty() && !columnValues.isEmpty()) 
+		{
+			if (columnNames.size() == columnValues.size())
+			{
+				for (int i = 0; i < columnNames.size(); i++) 
+				{
+					if (i != (columnNames.size() - 1)) 
+					{
 						columns += columnNames.get(i) + ", ";
 						placeholders += "?, ";
-					} else {
+					}
+					else 
+					{
 						columns += columnNames.get(i);
 						placeholders += "?";
 					}

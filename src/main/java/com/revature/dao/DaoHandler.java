@@ -1,8 +1,10 @@
 package com.revature.dao;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -49,6 +51,8 @@ public class DaoHandler
 			 foreignKeyList.get(count).put("isNullable",  foreignHolder.getIsNullable());
 			 foreignKeyList.get(count).put("columnLength", foreignHolder.getColumnLength());
 			 foreignKeyList.get(count).put("columnPrecision",  foreignHolder.getColumnPrecision());
+			 
+			 count++;
 		}
 		
 		//System.out.println(foreignKeyList == null);
@@ -59,10 +63,27 @@ public class DaoHandler
 																				true, columnsToSend, foreignKeyList);
 		tableTool.createTable();
 	}
-	public void CreateNewColumn(MetaModel<?> createFrom, LinkedHashMap<String, String> columnData)
+	public void CreateNewColumn(MetaModel<?> createFrom,
+															String columnName,
+															String columnType,
+															String isUnique,
+															String isNullable,
+															String columnLength,
+															String columnPrecision)
 	{
 		CreateColumn createColumn = new CreateColumn();
-		createColumn.addColumn(createFrom.getTableName(), createFrom.getTableSchema(), columnData);
+		LinkedHashMap builder = new LinkedHashMap<String, String>();
+		builder.put("columnName", columnName);
+		builder.put("columnType",  columnType);
+		builder.put("isUnique", isUnique);
+		builder.put("isNullable", isNullable);
+		builder.put("columnLength", columnLength);
+		builder.put("columnPrecision",  columnPrecision);
+		
+		createColumn.addColumn(createFrom.getTableName(), createFrom.getTableSchema(), builder);
+		
+		ColumnField newCol = new ColumnField(columnName, columnType, isUnique, isNullable, columnLength, columnPrecision);
+		createFrom.InsertColumn(newCol);
 	}
 	
 	public void DeleteExistingData(MetaModel<?> createFrom, int primaryKey)
@@ -78,9 +99,18 @@ public class DaoHandler
 		deleteTable.dropTable();
 	}
 	
-	public void InsertNewData(MetaModel<?> createFrom, List<String> columnNames, List<Object> columnValues)
+	public void InsertNewData(MetaModel<?> createFrom, List<Object> columnValues)
 	{
 		InsertData insertData = new InsertData();
+		
+		LinkedList<ColumnField> columnList = (LinkedList<ColumnField>) createFrom.getColumnFields();
+		LinkedList<String> columnNames = new LinkedList<>();
+		
+		for(ColumnField col : columnList)
+		{
+			columnNames.add(col.getColumnName());
+		}
+		
 		insertData.insert(createFrom.getTableName(), createFrom.getTableSchema(), columnNames, columnValues);
 	}
 	

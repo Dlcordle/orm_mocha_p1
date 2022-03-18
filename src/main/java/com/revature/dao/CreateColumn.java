@@ -76,7 +76,7 @@ public class CreateColumn {
 		}
 		
 		defineAddColumnSQL = "ALTER TABLE " + tableSchema + "." + tableName 
-										+ " ADD COLUMN " + columnName + " "
+										+ " ADD COLUMN IF NOT EXISTS " + columnName + " "
 										+ sqlType + (isUnique.equals("true") ? " UNIQUE" : "")
 										+ (isNullable.equals("false") ? " NOT NULL" : "") + ";";
 

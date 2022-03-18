@@ -38,9 +38,19 @@ public class TestDriver
 		config.setClassesToRead(testClassList);
 		
 		List<MetaModel<?>> holder = config.getModels();
-		DaoHandler dao = new DaoHandler();
-		dao.CreateNewTable(holder.get(0), conn);
-		dao.CreateNewTable(holder.get(1), conn);
+		ses.buildAllTables();
+//		ses.buildNewTable(holder.get(0));
+//		ses.buildNewTable(holder.get(1));
+		
+		ses.addColumn(holder.get(0), "Lettuce", "String", "false", "true", "50", "0");
+		
+		LinkedList<Object> newColInfo = new LinkedList<Object>();
+		
+		newColInfo.add("meh");
+		newColInfo.add(23840598);
+		newColInfo.add("Lettuce Good");
+		
+		ses.insertNewData(holder.get(0), newColInfo);
 	}
 
 }

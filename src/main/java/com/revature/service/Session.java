@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.security.auth.login.Configuration;
@@ -12,6 +13,7 @@ import javax.security.auth.login.Configuration;
 import org.apache.log4j.Logger;
 
 import com.revature.dao.DaoHandler;
+import com.revature.util.ColumnField;
 import com.revature.util.ConnectionUtil;
 import com.revature.util.MetaModel;
 
@@ -29,6 +31,7 @@ public class Session
 	{
 		connectionU = new ConnectionUtil();
 		parse = new Parser();
+		dao = new DaoHandler();
 	}
 	
 	public Session(Config configuration)
@@ -38,6 +41,7 @@ public class Session
 		connectionU.setUrl(configuration.getUrl());
 		connectionU.setUsername(configuration.getUsername());
 		connectionU.setPassword(configuration.getPassword());
+		dao = new DaoHandler();
 	}
 	
 	public void setConfiguration(Config configuration)
@@ -66,27 +70,32 @@ public class Session
 		dao.CreateNewTable(toInsert, conn);
 	}
 	
-	public void AddColumn(MetaModel<?> fromTable, LinkedHashMap<String, String> data)
+	public void addColumn(MetaModel<?> fromTable, String columnName,
+			String columnType,
+			String isUnique,
+			String isNullable,
+			String columnLength,
+			String columnPrecision)
 	{
-		dao.CreateNewColumn(fromTable, data);
+		dao.CreateNewColumn(fromTable, columnName, columnType, isUnique, isNullable, columnLength, columnPrecision);
 	}
 	
-	public void DeleteExistingTable(String tableName, String tableSchema)
+	public void deleteExistingTable(String tableName, String tableSchema)
 	{
 		dao.DeleteExistingTable(tableName, tableSchema);
 	}
 	
-	public void InsertNewData(MetaModel<?> createFrom, List<String> columnNames, List<Object> columnValues)
-	{
-		dao.InsertNewData(createFrom, columnNames, columnValues);
+	public void insertNewData(MetaModel<?> createFrom, List<Object> columnValues)
+	{	
+		dao.InsertNewData(createFrom, columnValues);
 	}
 	
-	public void PrintTable(MetaModel<?> createFrom)
+	public void printTable(MetaModel<?> createFrom)
 	{
 		dao.PrintTable(createFrom);
 	}
 	
-	public void UpdateExistingData(MetaModel<?> createFrom, String updateColumnName, Object updateThisValue, int primaryKey)
+	public void updateExistingData(MetaModel<?> createFrom, String updateColumnName, Object updateThisValue, int primaryKey)
 	{
 		dao.UpdateExistingData(createFrom, updateColumnName, updateThisValue, primaryKey);
 	}
