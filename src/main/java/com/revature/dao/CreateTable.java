@@ -8,10 +8,13 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.util.ConnectionUtil;
 
 public class CreateTable {
 	Connection conn = ConnectionUtil.getConnection();
+	private static Logger logger = Logger.getLogger(CreateTable.class);
 
 	private String tableName; // @Table tableName
 	private String tableSchema; // @Table tableSchema
@@ -79,7 +82,7 @@ public class CreateTable {
 	 * this for testing.
 	 */
 	public String createTable() {
-		defineTableSQL += "CREATE TABLE " + tableSchema + "." + tableName + " (" + primaryKeyColumnName
+		defineTableSQL += "CREATE TABLE IF NOT EXISTS " + tableSchema + "." + tableName + " (" + primaryKeyColumnName
 				+ (primaryKeyIsSerial == true ? " SERIAL" : "") + " PRIMARY KEY, ";
 
 		defineTableSQL += getSQLType(columns);
@@ -94,12 +97,10 @@ public class CreateTable {
 
 		defineTableSQL += ");";
 
-		System.out.println(defineTableSQL);
-
 		// Ready for a connection
 
 		try {
-			System.out.println(defineTableSQL);
+			logger.info(defineTableSQL);
 			PreparedStatement stmt = conn.prepareStatement(defineTableSQL);
 			stmt.executeUpdate();
 
@@ -123,61 +124,82 @@ public class CreateTable {
 		// Variable for SQL script to return
 		String sqlTypeReturn = "";
 
-		if (cols.isEmpty()) {
+		if (!cols.isEmpty()) 
+		{
+			//System.out.println("Cols Size? "+cols.size());
 
 			// Iterate through columns based on how many
 			// works for @Columns and @JoinColumn columns
-			for (int i = 0; i < cols.size(); i++) {
-
-				System.out.println(i);
+			for (int i = 0; i < cols.size(); i++) 
+			{
+				//System.out.println(i);
 				String sqlType = "";
 				String columnName = cols.get(i).get("columnName");
 				String columnType = cols.get(i).get("columnType");
 
-				System.out.println("Column type: " + columnType);
+				//System.out.println("Column type: " + columnType);
 
 				String isUnique = cols.get(i).get("isUnique");
 				String isNullable = cols.get(i).get("isNullable");
 				String columnLength = cols.get(i).get("columnLength");
 				String columnPrecision = cols.get(i).get("columnPrecision");
 
-				if (columnType == "String") {
+				if (columnType.contentEquals("String")) 
+				{
 					sqlType += "VARCHAR";
-					if (Integer.parseInt(columnLength) > 0) {
+					if (Integer.parseInt(columnLength) > 0) 
+					{
 						sqlType += "(" + columnLength + ")";
-					} else {
+					} 
+					else 
+					{
 						sqlType += "(50)";
 					}
-				} else if (columnType == "int") {
-					sqlType += "INTEGER";
-				} else if (columnType == "double") {
+				} 
+				else if (columnType.contentEquals("int")) 
+				{
+					sqlType += "INT";
+				} 
+				else if (columnType.contentEquals("double")) 
+				{
 					sqlType += "NUMERIC";
-					if (Integer.parseInt(columnLength) > 0 && Integer.parseInt(columnPrecision) > 0) {
+					if (Integer.parseInt(columnLength) > 0 && Integer.parseInt(columnPrecision) > 0) 
+					{
 						sqlType += "(" + columnLength + "," + columnPrecision + ")";
-					} else if (Integer.parseInt(columnLength) > 0) {
+					} 
+					else if (Integer.parseInt(columnLength) > 0)
+					{
 						sqlType += "(" + columnLength + ")";
-					} else {
+					}
+					else 
+					{
 						sqlType += "(50)";
 					}
-				} else if (columnType == "boolean") {
+				} 
+				else if (columnType.contentEquals("boolean"))
+				{
 					sqlType = "BOOLEAN";
-				} else {
-					sqlType = "";
+				} 
+				else 
+				{
+					//Do nothing
 				}
 
-				System.out.println("sqlTypeReturn: " + sqlTypeReturn);
-				System.out.println("sqlType:" + sqlType);
-				System.out.println("isUnique: " + isUnique);
-				System.out.println("isNullable: " + isNullable);
+//				System.out.println("sqlTypeReturn: " + sqlTypeReturn);
+				//System.out.println("sqlType:" + sqlType);
+//				System.out.println("isUnique: " + isUnique);
+//				System.out.println("isNullable: " + isNullable);
 
-				sqlTypeReturn += columnName + " " + sqlType + (isUnique == "true" ? " UNIQUE" : "")
+				sqlTypeReturn += columnName + " " + sqlType +" "+ (isUnique == "true" ? " UNIQUE" : "")
 						+ (isNullable == "false" ? " NOT NULL" : "");
 
 				if (i != (cols.size() - 1)) {
-					sqlTypeReturn += ",";
+					sqlTypeReturn += ", ";
 				}
 			}
-		} else {
+		} 
+		else 
+		{
 			System.out.println("You left out some information.");
 		}
 		return sqlTypeReturn;

@@ -1,6 +1,7 @@
 package com.revature.util;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 
 import com.revature.annotations.Column;
 
@@ -74,6 +75,24 @@ public class ColumnField {
 	public String getColumnPrecision()
 	{
 		return field.getAnnotation(Column.class).columnPrecision();
+	}
+
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(field);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ColumnField other = (ColumnField) obj;
+		return Objects.equals(field, other.field);
 	}
 
 	@Override

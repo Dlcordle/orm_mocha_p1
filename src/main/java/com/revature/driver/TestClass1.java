@@ -10,6 +10,11 @@ import com.revature.annotations.Table;
 public class TestClass1 
 {
 	@Id(columnName = "testIntARoo")
-	@Column(isUnique = "true", columnLength = "50", columnName = "testint", columnPrecision = "0", columnType = "int", isNullable = "false")
 	private int testInt;
+	
+	@Column(isUnique = "true", columnLength = "50", columnName = "testString", columnPrecision = "0", columnType = "String", isNullable = "false")
+	private String tester;
+	
+	@Column(isUnique = "false", columnLength = "50", columnName = "testint", columnPrecision = "0", columnType = "int", isNullable = "false")
+	private int testIn2t;
 }

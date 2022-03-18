@@ -15,7 +15,7 @@ import com.revature.util.PrimaryKeyField;
 
 public class DaoHandler 
 {
-	private static Logger logger = Logger.getLogger(Parser.class);
+	private static Logger logger = Logger.getLogger(DaoHandler.class);
 	
 	public void CreateNewTable(MetaModel<?> createFrom, Connection conn)
 	{
@@ -34,6 +34,8 @@ public class DaoHandler
 			columnsToSend.get(count).put("isNullable",  col.getIsNullable());
 			columnsToSend.get(count).put("columnLength", col.getColumnLength());
 			columnsToSend.get(count).put("columnPrecision",  col.getColumnPrecision());
+			
+			count++;
 		}
 		
 		List<LinkedHashMap<String, String>> foreignKeyList = new ArrayList<LinkedHashMap<String, String>>();

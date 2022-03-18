@@ -20,6 +20,7 @@ public class Config
 	
 	public Config() {
 		super();
+		parse = new Parser();
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -76,6 +77,7 @@ public class Config
 	public void setClassesToRead(LinkedList<Class<?>> newList)
 	{
 		classesToRead = newList;
+		models = (LinkedList<MetaModel<?>>) parse.inspectClass(classesToRead);
 	}
 	
 	@Override

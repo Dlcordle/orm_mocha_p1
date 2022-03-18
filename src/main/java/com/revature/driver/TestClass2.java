@@ -9,11 +9,13 @@ import com.revature.annotations.Table;
 @Table(tableName = "potato", tableSchema = "mocha")
 public class TestClass2
 {
-	@Id(columnName = "testIntARoo")
-	@Column(isUnique = "true", columnLength = "50", columnName = "testint", columnPrecision = "0", columnType = "int", isNullable = "false")
+	@Id(columnName = "testIntARoo2")
 	private int testInt;
 	
-	@Column(isUnique = "false", columnLength = "50", columnName = "testint", columnPrecision = "0", columnType = "int", isNullable = "false")
+	@Column(isUnique = "true", columnLength = "50", columnName = "testString", columnPrecision = "0", columnType = "String", isNullable = "false")
+	private String tester;
+	
+	@Column(isUnique = "false", columnLength = "50", columnName = "testint2", columnPrecision = "0", columnType = "int", isNullable = "false")
 	private int testIn2t;
 }
 

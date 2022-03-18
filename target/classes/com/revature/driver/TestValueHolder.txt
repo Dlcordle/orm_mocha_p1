@@ -1,0 +1,33 @@
+//		Connection con = null;
+//      try {
+//         con = DriverManager.
+//        		 getConnection("jdbc:postgresql://team-1-enterprise.cvtq9j4axrge.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=mocha", "postgres", "postgres");
+//        		 System.out.println("Connection is successful !!!!!");
+//        		       } catch(Exception e) {
+//        		          e.printStackTrace();
+//        		       }		
+////      
+//      ReadTable read = new ReadTable();
+////		
+//		read.read("recipes",0);
+//		
+//	UpdateTable up = new UpdateTable();
+//	up.update("recipes", "recipe_name","enchilada", "recipe_id", 1);
+//	
+//	read.read("recipes", 0);
+//      
+		
+	
+	//read.read("recipes",0);
+	
+	LinkedHashMap<String, String> hashMap2 = new LinkedHashMap();
+
+	hashMap2.put("columnName", "extra_column_1");
+	hashMap2.put("columnType", "String");
+	hashMap2.put("isUnique", "false");
+	hashMap2.put("isNullable", "true");
+	hashMap2.put("columnLength", "50");
+	hashMap2.put("columnPrecision", "0");
+
+	CreateColumn cc = new CreateColumn();
+	cc.addColumn("users2", "mocha", hashMap2);
