@@ -169,6 +169,7 @@ public class MetaModel<T>
 					foreignKeyFields.add(new ForeignKeyField(field));
 				}
 			}
+
 		}
 		try
 		{

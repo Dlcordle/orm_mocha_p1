@@ -1,6 +1,7 @@
 package com.revature.util;
 
 import java.lang.reflect.Field;
+import java.util.Objects;
 
 import com.revature.annotations.Column;
 import com.revature.annotations.JoinColumn;
@@ -46,26 +47,45 @@ public class ForeignKeyField {
 
 	public String getIsUnique()
 	{
-		return field.getAnnotation(Column.class).isUnique();
+		return field.getAnnotation(JoinColumn.class).isUnique();
 	}
 	
 	public String getIsNullable()
 	{
-		return field.getAnnotation(Column.class).isNullable();
+		return field.getAnnotation(JoinColumn.class).isNullable();
 	}
 	
 	public String getColumnLength()
 	{
-		return field.getAnnotation(Column.class).columnLength();
+		return field.getAnnotation(JoinColumn.class).columnLength();
 	}
 	
 	public String getColumnType()
 	{
-		return field.getAnnotation(Column.class).columnType();
+		return field.getAnnotation(JoinColumn.class).columnType();
 	}
 	
 	public String getColumnPrecision()
 	{
-		return field.getAnnotation(Column.class).columnPrecision();
+		return field.getAnnotation(JoinColumn.class).columnPrecision();
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(field);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ForeignKeyField other = (ForeignKeyField) obj;
+		return Objects.equals(field, other.field);
+	}
+	
+	
 }
